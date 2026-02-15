@@ -4,16 +4,16 @@ public class Insertion1 {
 
         // Insertion Sort
         for (int i = 1; i < arr.length; i++) {
-            int key = arr[i];
-            int j = i - 1;
+            int curr = arr[i];
+            int prev = i - 1;
 
-            // Move elements greater than key
-            while (j >= 0 && arr[j] > key) {
-                arr[j + 1] = arr[j];
-                j--;
+            // Move elements greater than curr
+            while (prev >= 0 && arr[prev] > curr) {
+                arr[prev + 1] = arr[prev];
+                prev--;
             }
 
-            arr[j + 1] = key;
+            arr[prev + 1] = curr;
         }
 
         // Output
