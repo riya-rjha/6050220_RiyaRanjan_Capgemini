@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd">						
+
+<!-- Declaring to ApplicationContext that we are using annotation based config -->
+<!-- Where are all the component classes located and to create objects for them, provide path in package -->
+<!-- <context:component-scan base-package="cg.demo.beans"></context:component-scan> -->
+
+ <context:annotation-config></context:annotation-config> 
+<context:component-scan base-package="cg.demo.beans.autowiring"/>
+
+<!-- bean definitions here -->
+
+<!-- Scope of bean changed to prototype so scope of Singleton is changed -->
+<!-- Singleton -> Eager Instantiation, Prototype -> Lazy instantiation -->
+<!-- Singleton is default scope -->
+
+<!-- For singleton, destruction is done as soon as ApplicationContext is closed -->
+<!-- But for Prototype bean, destruction is now handed over to the user -->
+
+<!-- Address object created -->
+<!-- By default autowire is done by type -->
+
+<!-- Autowiring:
+Spring automatically finds and injects dependencies without writing ref -->
+
+	
+<!--	init method means call my custom method for initialization & destruction of beans-->
+	
+	
+<!--
+<bean scope="prototype" id="address" class="cg.demo.beans.Address" init-method="customInit" destroy-method="customDestroy">
+    <property name="address" value="B-45, Sector-5"></property>
+    <property name="city" value="Ghaziabad"></property>
+    <property name="state" value="Uttar Pradesh"></property>
+    <property name="zipCode" value="20131"></property>
+</bean>
+-->
+
+<!--
+<bean id="emp1" class="cg.demo.beans.Employee" autowire="byName">
+    <property name="eid" value="101"></property>
+    <property name="ename" value="John Braid"></property>
+    <property name="esalary" value="55000"></property>
+</bean>
+-->
+
+<!--
+<map>
+    <entry key="" value=""></entry>
+</map>
+-->
+
+<!--
+<entry-key-ref="" value-ref="" bean=""></entry>
+-->
+
+<!--
+<list>
+    <value></value>
+    <value></value>
+    <value></value>
+</list>
+-->
+
+<!--
+<bean id="emp1" class="cg.demo.beans.Employee">
+    <property name="eid" value="102"></property>
+    <property name="ename" value="John Wick"></property>
+    <property name="mobileNoSet">
+        <set>
+            <value>9865221</value>
+            <value>219873</value>
+            <value>837435</value>
+        </set>
+    </property>
+</bean>
+-->
+
+</beans>
